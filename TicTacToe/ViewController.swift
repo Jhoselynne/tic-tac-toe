@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet var UIButtons: [UIButton]!
     
     
-    
     var isGameStarted: Bool = false
         
     var game: Game = Game(player1: Player(name: "Player 1", marker: "star"), player2: Player(name: "Player 2", marker: "happy-sun"))
@@ -24,10 +23,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         playerLbl.text = game.currentPlayer.name
-        
     }
     
     @IBAction func setMarker(_ sender: UIButton) {
@@ -49,15 +46,10 @@ class ViewController: UIViewController {
             
         default: return
             
-            
-            
         }
-        // sender.setTitle("X", for: .normal)
         
         sender.setBackgroundImage(UIImage(named: game.currentPlayer.marker), for: .normal)
         
-        
-        // *** Tror jag kan flytta över logiken till game ***
         // Checks if any player has won
         var ifWon = false
         
@@ -106,5 +98,4 @@ class ViewController: UIViewController {
             UIButtons[index].isUserInteractionEnabled = false
         }
     }
-    
 }

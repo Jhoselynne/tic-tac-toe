@@ -17,7 +17,6 @@ class Game {
     let BUSY_CELL = 4
     
     var gameStatus: Int
-    //var ifWon = false
     
     var board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var player1Array: Array<Int> = []
@@ -47,33 +46,12 @@ class Game {
         if currentPlayer.name == player1.name {
             board[index] = 1
             player1Array.append(index)
-            return GAME_CONTINUE  // GAME_CONTINUE = 0
         } else {
             board[index] = 2
             player2Array.append(index)
-            return GAME_CONTINUE
         }
         
-        
-        // Försöker att använda mig utav states
-//        if checkWinConditions(playerArray: player1Array) == true {
-//            ifWon = checkWinConditions(playerArray: player1Array)
-//            return FINISHED_PLAYER1
-//        } else if checkWinConditions(playerArray: player2Array) == true {
-//            ifWon = checkWinConditions(playerArray: player2Array)
-//            return FINISHED_PLAYER2
-//            } else {
-//            return GAME_CONTINUE
-//        }
-        
-        
-        // Är if-sats överflödig??
-        if board[index] != 0 {
-            print(board)
-            return BUSY_CELL        // BUSY_CELL = 4
-        }
-        
-        return -1
+        return GAME_CONTINUE
     }
     
     // Change players every other time

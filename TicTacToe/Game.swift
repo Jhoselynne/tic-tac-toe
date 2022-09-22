@@ -26,7 +26,7 @@ class Game {
     }
     
     func addMove(index: Int) {
-        if currentPlayer.name == player1.name {
+        if currentPlayer == player1 {
             player1Array.append(index)
         } else {
             player2Array.append(index)
@@ -35,7 +35,7 @@ class Game {
     
     // Change players every other time
     func togglePlayer(name: String) {
-        if currentPlayer.name == player1.name {
+        if currentPlayer == player1 {
             currentPlayer = player2
         } else {
             currentPlayer = player1

@@ -7,17 +7,18 @@
 
 import Foundation
 
+//class Player: NSObject {
 struct Player {
     
     var name: String = ""
     var marker: String = ""
-    //  var playerTurn: Bool
     
     init(name: String, marker: String) {
         self.name = name
         self.marker = marker
     }
     
+    static func == (lp: Player, rp: Player) -> Bool {
+        return lp.name == rp.name
+    }
 }
-
-

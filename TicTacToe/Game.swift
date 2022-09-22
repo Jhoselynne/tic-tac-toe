@@ -9,16 +9,14 @@ import Foundation
 
 class Game {
     
-    // States
+    // Game States
     let GAME_CONTINUE = 0
     let FINISHED_PLAYER1 = 1
     let FINISHED_PLAYER2 = 2
     let FINISHED_DRAW = 3
-    let BUSY_CELL = 4
     
     var gameStatus: Int
     
-    var board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var player1Array: Array<Int> = []
     var player2Array: Array<Int> = []
     
@@ -28,7 +26,6 @@ class Game {
     var player2: Player
     
     var currentPlayer: Player
-    
     
     init(player1: Player, player2: Player) {
         self.player1 = player1
@@ -44,10 +41,8 @@ class Game {
         }
         
         if currentPlayer.name == player1.name {
-            board[index] = 1
             player1Array.append(index)
         } else {
-            board[index] = 2
             player2Array.append(index)
         }
         
@@ -74,14 +69,11 @@ class Game {
     }
     
     func resetGame() {
-        board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         player1Array = []
         player2Array = []
         currentPlayer = player1
         
         print("RESET WAS PRESSED!!")
-        print(board)
         print(player1Array, player2Array)
     }
-    
 }

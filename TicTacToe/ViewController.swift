@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         let tag = sender.tag
 
         game.addMove(index: tag)
-        print("tag:", tag)
+        // print("tag:", tag)
         
         disableBoardBtn(index: tag)
         
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         // Checks if any player has won
         var ifWon = false
         
-        if game.currentPlayer.name == game.player1.name {
+        if game.currentPlayer == game.player1 {
             ifWon = game.checkWinConditions(playerArray: game.player1Array)
         } else {
             ifWon = game.checkWinConditions(playerArray: game.player2Array)

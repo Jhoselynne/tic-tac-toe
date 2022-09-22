@@ -41,7 +41,7 @@ class Game {
             currentPlayer = player1
         }
     }
-    
+    // Checks if player's array match one of the win conditions
     func checkWinConditions(playerArray: Array<Int>) -> Bool {
         for winCondition in winConditions {
             if winCondition.allSatisfy(playerArray.contains) {
@@ -56,7 +56,6 @@ class Game {
         player2Array = []
         currentPlayer = player1
         
-        print("RESET WAS PRESSED!!")
-        print(player1Array, player2Array)
+        print("Reset was pressed: \(player1Array), \(player2Array)")
     }
 }

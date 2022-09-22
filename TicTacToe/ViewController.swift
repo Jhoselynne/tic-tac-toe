@@ -11,8 +11,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playerLbl: UILabel!
     @IBOutlet var UIButtons: [UIButton]!
-    
-    var isGameStarted: Bool = false
         
     var game: Game = Game(player1: Player(name: "Player 1", marker: "star"), player2: Player(name: "Player 2", marker: "happy-sun"))
     
@@ -24,20 +22,10 @@ class ViewController: UIViewController {
     @IBAction func setMarker(_ sender: UIButton) {
         let tag = sender.tag
 
-        let result = game.addMove(index: tag)
+        game.addMove(index: tag)
         print("tag:", tag)
         
         disableBoardBtn(index: tag)
-            
-        switch result {
-            case game.GAME_CONTINUE:
-                print("Game continues!")
-            case game.FINISHED_PLAYER1:
-                print("Finished player 1")
-            case game.FINISHED_PLAYER2:
-                print("Finished player 2")
-            default: return
-        }
         
         sender.setBackgroundImage(UIImage(named: game.currentPlayer.marker), for: .normal)
         

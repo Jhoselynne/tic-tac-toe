@@ -9,14 +9,6 @@ import Foundation
 
 class Game {
     
-    // Game States
-    let GAME_CONTINUE = 0
-    let FINISHED_PLAYER1 = 1
-    let FINISHED_PLAYER2 = 2
-    let FINISHED_DRAW = 3
-    
-    var gameStatus: Int
-    
     var player1Array: Array<Int> = []
     var player2Array: Array<Int> = []
     
@@ -31,22 +23,14 @@ class Game {
         self.player1 = player1
         self.player2 = player2
         currentPlayer = player1
-        gameStatus = GAME_CONTINUE
     }
     
-    func addMove(index: Int) -> Int {
-        
-        if gameStatus != GAME_CONTINUE {
-            return gameStatus
-        }
-        
+    func addMove(index: Int) {
         if currentPlayer.name == player1.name {
             player1Array.append(index)
         } else {
             player2Array.append(index)
         }
-        
-        return GAME_CONTINUE
     }
     
     // Change players every other time
@@ -59,7 +43,6 @@ class Game {
     }
     
     func checkWinConditions(playerArray: Array<Int>) -> Bool {
-        
         for winCondition in winConditions {
             if winCondition.allSatisfy(playerArray.contains) {
                 return true

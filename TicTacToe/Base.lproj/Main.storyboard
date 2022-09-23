@@ -187,6 +187,8 @@
                     </view>
                     <connections>
                         <outlet property="playerLbl" destination="JOJ-GC-yqs" id="K01-n1-l2Y"/>
+                        <outlet property="resetBtn" destination="Ujp-oZ-m7U" id="cim-Lk-S2V"/>
+                        <outlet property="turnLbl" destination="ca9-9s-uec" id="flp-XZ-AsB"/>
                         <outletCollection property="UIButtons" destination="dsn-bT-PsJ" collectionClass="NSMutableArray" id="v8c-y0-4r8"/>
                         <outletCollection property="UIButtons" destination="xpr-ui-pJi" collectionClass="NSMutableArray" id="iHv-S7-cmY"/>
                         <outletCollection property="UIButtons" destination="Abl-MN-yPm" collectionClass="NSMutableArray" id="92y-fy-vyr"/>

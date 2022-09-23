@@ -9,9 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var turnLbl: UILabel!
     @IBOutlet weak var playerLbl: UILabel!
     @IBOutlet var UIButtons: [UIButton]!
-        
+    @IBOutlet weak var resetBtn: UIButton!
+    
     var game: Game = Game(player1: Player(name: "Player 1", marker: "star"), player2: Player(name: "Player 2", marker: "happy-sun"))
     
     override func viewDidLoad() {
@@ -46,9 +48,12 @@ class ViewController: UIViewController {
                 button.isUserInteractionEnabled = false
             }
             playerLbl.text = "\(game.currentPlayer.name) won!!"
-            // Change text on reset btn *****
+            turnLbl.isHidden = true
+            resetBtn.setTitle("Play again", for: .normal)
         } else if ifWon != true && game.player1Array.count == 5 {
             playerLbl.text = "Draw"
+            turnLbl.isHidden = true
+            resetBtn.setTitle("Play again", for: .normal)
         }else {
             game.togglePlayer(name: game.currentPlayer.name)
             playerLbl.text = game.currentPlayer.name
@@ -59,6 +64,8 @@ class ViewController: UIViewController {
     
     @IBAction func onReset(_ sender: Any) {
         game.resetGame()
+        turnLbl.isHidden = false
+        resetBtn.setTitle("Reset", for: .normal)
         
         for button in UIButtons {
             button.setBackgroundImage(.init(), for: .normal)
